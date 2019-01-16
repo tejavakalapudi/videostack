@@ -4,7 +4,6 @@
             v-for="video in videos"
             :video="video"
             :key="video.etag"
-            @onItemClicked='itemClicked'
         />
     </ul>
 </template>
@@ -19,11 +18,6 @@
         },
         props: {
             videos: Array
-        },
-        methods: {
-            itemClicked(video){
-                this.$emit('onVideoClicked', video);
-            }
         }
     }
 </script>

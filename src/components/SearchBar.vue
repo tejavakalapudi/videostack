@@ -1,17 +1,15 @@
 <template>
     <div>
-        <input @input="onInputChange"/>
+        <input @input="fetchVideosBySearchTerm"/>
     </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     name: 'SearchBar',
-    methods: {
-        onInputChange(e) {
-            this.$emit('onSearchTermChange', e.target.value)
-        }
-    }
+    methods: mapActions( ['fetchVideosBySearchTerm'] )
 }
 </script>
 

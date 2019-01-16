@@ -1,5 +1,5 @@
 <template>
-    <li class="list-group-item media" @click="itemClicked">
+    <li class="list-group-item media" @click="setSelectedVideo(video)">
         <img class="mr-3" :src="thumbnailUrl"/>
         <div class="media-body">
             {{video.snippet.title}}
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex';
     export default {
         name: 'VideoItem',
         props: {
@@ -18,11 +19,7 @@
                 return this.video.snippet.thumbnails.default.url;
             }
         },
-        methods:{
-            itemClicked(){
-                this.$emit('onItemClicked', this.video);
-            }
-        }
+        methods: mapActions( ['setSelectedVideo'] )
     }
 </script>
 
